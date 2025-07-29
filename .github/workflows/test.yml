@@ -16,10 +16,16 @@ jobs:
   
   test:
     needs: [lint]
+    strategy:
+      matrix:
+        version: [20, 18, 22]
     runs-on: ubuntu-latest
     steps:
       - name: CheckOut
         uses: actions/checkout@v4
+      - uses: actions/set-up@v4
+        with: 
+          node-version: ${{matrix.version}}
 
       - name: Install 
         run: npm ci
