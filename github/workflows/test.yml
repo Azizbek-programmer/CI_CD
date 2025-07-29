@@ -6,7 +6,7 @@ jobs:
     steps:
       - name: CheckOut
         uses: actions/checkout@v4
-      -name: Install
+      - name: Install
         run: npm ci
-      -name: Lint Check
+      - name: Lint Check
         run: npm run lint
